@@ -1,0 +1,41 @@
+GitHub SSH Setup for aidevro Account
+=====================================
+
+PROBLEM IDENTIFIED:
+- Need to use a different SSH key for the aidevro account
+
+SOLUTION:
+A new SSH key has been generated specifically for the aidevro account.
+
+NEW SSH PUBLIC KEY:
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA6k2Rf5NPjYiD96OH3l1s6EE5N6i0v3axoYPV0g0g2P marius.bugaciu@gmail.com
+
+STEPS TO COMPLETE:
+
+1. Add the SSH key to your aidevro GitHub account:
+   - Go to: https://github.com/settings/keys
+   - Click "New SSH key"
+   - Title: "Maimuta Development Key" (or any name you prefer)
+   - Key: Paste the public key above
+   - Click "Add SSH key"
+
+2. Test the SSH connection:
+   ssh -T git@github.com
+   
+   Expected output: "Hi aidevro! You've successfully authenticated..."
+
+3. Push to GitHub:
+   cd /Users/mbugaciu/src/coding/maimuta_v1-4-0
+   git push -u origin main --force
+
+CURRENT CONFIGURATION:
+- Git user: Marius Bugaciu <marius.bugaciu@gmail.com>
+- Remote: git@github.com:aidevro/maimuta.git
+- Branch: main
+- SSH key: ~/.ssh/id_ed25519_aidevro (configured in ~/.ssh/config)
+
+ALTERNATIVE: Use Personal Access Token (PAT)
+If SSH continues to be problematic:
+1. Create a PAT at https://github.com/settings/tokens
+2. Use HTTPS: git remote set-url origin https://aidevro@github.com/aidevro/maimuta.git
+3. Push (will prompt for token): git push -u origin main --force
